@@ -1,0 +1,76 @@
+{
+  "schema": "frantic.sourcey_gap_audit.v1",
+  "summary": "Sourcey 3.6.3 successfully rebuilt the pinned Gotify Swagger document, preserving 41 endpoints and 22 models while exposing six concrete documentation and publishing gaps with source-vs-generator classification.",
+  "target": {
+    "repository": "https://github.com/gotify/server",
+    "commit": "8221c0b895fdd1b1b84c0d5784e9422eb314ecb5",
+    "commit_url": "https://github.com/gotify/server/commit/8221c0b895fdd1b1b84c0d5784e9422eb314ecb5",
+    "spec_url": "https://raw.githubusercontent.com/gotify/server/8221c0b895fdd1b1b84c0d5784e9422eb314ecb5/docs/spec.json",
+    "license": "MIT",
+    "license_url": "https://github.com/gotify/server/blob/8221c0b895fdd1b1b84c0d5784e9422eb314ecb5/LICENSE"
+  },
+  "sourcey": {
+    "version": "3.6.3",
+    "adapter": "OpenAPI quick build (Swagger 2.0)",
+    "config": "No sourcey.config.ts; quick-build mode",
+    "validate_command": "npx --yes sourcey@3.6.3 validate .\\source\\spec.json",
+    "build_command": "npx --yes sourcey@3.6.3 build .\\source\\spec.json -o .\\audit-build",
+    "validate_output": "Valid: Gotify REST-API. v2.1.0; Operations: 41; Schemas: 22",
+    "build_output": "Spec: Gotify REST-API. v2.1.0; Operations: 41; Schemas: 22; Time: 4.0s"
+  },
+  "measurements": {
+    "operations": 41,
+    "schemas": 22,
+    "search_entries": 63,
+    "search_endpoint_entries": 41,
+    "search_model_entries": 22,
+    "operations_missing_description": 24,
+    "operations_without_response_examples": 41,
+    "schemas_missing_description": 1,
+    "source_host": "localhost",
+    "source_schemes": ["http", "https"],
+    "generated_localhost_occurrences": 289
+  },
+  "observations": [
+    {
+      "kind": "runx_cli_version",
+      "value": "runx-cli 0.6.13"
+    },
+    {
+      "kind": "source",
+      "value": "Pinned public Gotify Swagger 2.0 document at commit 8221c0b895fdd1b1b84c0d5784e9422eb314ecb5 under MIT."
+    },
+    {
+      "kind": "command",
+      "value": "Sourcey validate and build commands completed successfully against the pinned snapshot."
+    },
+    {
+      "kind": "output",
+      "value": "41 operations, 22 schemas, 63 generated search entries, and a 4.0 second build."
+    },
+    {
+      "kind": "gap",
+      "value": "The source host is localhost and generated api.html contains 289 localhost occurrences; classified as a target-source gap plus a missing Sourcey publish-time safeguard."
+    },
+    {
+      "kind": "gap",
+      "value": "24/41 operations lack descriptions, 41/41 lack response examples, and 1/22 schemas lacks a top-level description; classified as target-project documentation gaps."
+    },
+    {
+      "kind": "working_examples",
+      "value": "Complete endpoint navigation, 22 searchable models, operation security rendering, and portable static/search/LLM artifacts worked without template changes."
+    },
+    {
+      "kind": "follow_up",
+      "value": "Sourcey placeholder-host warning proposed at https://github.com/sourcey/sourcey/issues/252; fewer than two Sourcey issues were opened because the remaining gaps are upstream content or already-supported guide configuration."
+    },
+    {
+      "kind": "recommendations",
+      "value": "Correct deploy host guidance, add operation/model prose and response examples, configure task-oriented Markdown guides, and add publish-readiness coverage checks."
+    }
+  ],
+  "follow_up_links": [
+    "https://github.com/sourcey/sourcey/issues/252"
+  ]
+}
+

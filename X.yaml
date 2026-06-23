@@ -1,0 +1,28 @@
+skill: sourcey-gotify-gap-audit
+version: "0.1.0"
+
+catalog:
+  kind: skill
+  audience: public
+  visibility: public
+  role: canonical
+
+runners:
+  default:
+    default: true
+    type: cli-tool
+    command: node
+    args:
+      - run.mjs
+    sandbox:
+      profile: network
+      cwd_policy: workspace
+      require_enforcement: false
+    inputs:
+      spec_url:
+        type: string
+        required: true
+      source_commit:
+        type: string
+        required: true
+
