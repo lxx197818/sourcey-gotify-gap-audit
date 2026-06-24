@@ -1,0 +1,55 @@
+skill: board-health-audit
+version: "0.1.0"
+
+catalog:
+  kind: skill
+  audience: public
+  visibility: public
+  role: canonical
+
+harness:
+  cases:
+    - name: live-board-health-sample
+      runner: default
+      inputs:
+        board_url: https://gofrantic.com/v1/board
+        bounty_numbers: "31,42,43,45,49,56"
+      expect:
+        status: sealed
+        receipt:
+          schema: runx.receipt.v1
+          state: sealed
+          disposition: closed
+          reason_code: process_closed
+    - name: rejects-non-frantic-board
+      runner: default
+      inputs:
+        board_url: https://example.com/v1/board
+        bounty_numbers: "31,42,43,45,49,56"
+      expect:
+        status: failure
+        receipt:
+          schema: runx.receipt.v1
+          state: sealed
+          disposition: closed
+          reason_code: process_failed
+
+runners:
+  default:
+    default: true
+    type: cli-tool
+    command: D:\NodeJS\node.exe
+    args:
+      - run.mjs
+    timeout_seconds: 60
+    sandbox:
+      profile: readonly
+      cwd_policy: workspace
+      require_enforcement: false
+    inputs:
+      board_url:
+        type: string
+        required: true
+      bounty_numbers:
+        type: string
+        required: true

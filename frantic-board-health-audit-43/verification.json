@@ -1,0 +1,34 @@
+{
+  "schema": "frantic.board_health.verification.v1",
+  "runx_version": "runx-cli 0.6.13",
+  "commands": [
+    {
+      "name": "runx_version",
+      "command": "runx --version",
+      "status": "passed",
+      "output": "runx-cli 0.6.13"
+    },
+    {
+      "name": "public_node_dogfood",
+      "command": "node run.mjs with RUNX_INPUT_BOARD_URL=https://gofrantic.com/v1/board and RUNX_INPUT_BOUNTY_NUMBERS=31,42,43,45,49,56",
+      "status": "passed",
+      "output_file": "evidence.json"
+    },
+    {
+      "name": "runx_harness_attempt",
+      "command": "runx harness . --json",
+      "status": "blocked_by_windows_receipt_store",
+      "observed_error": "receipt store is unreadable: 参数错误。 (os error 87)"
+    }
+  ],
+  "public_sources_checked": [
+    "https://gofrantic.com/v1/board",
+    "https://gofrantic.com/v1/bounties/31",
+    "https://gofrantic.com/v1/bounties/42",
+    "https://gofrantic.com/v1/bounties/43",
+    "https://gofrantic.com/v1/bounties/45",
+    "https://gofrantic.com/v1/bounties/49",
+    "https://gofrantic.com/v1/bounties/56"
+  ],
+  "private_access_used": false
+}

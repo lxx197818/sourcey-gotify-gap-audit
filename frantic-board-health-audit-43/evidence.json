@@ -1,0 +1,185 @@
+﻿{
+  "audited_at": "2026-06-24T01:46:19.974Z",
+  "sources": {
+    "board_url": "https://gofrantic.com/v1/board",
+    "sampled_bounties": [
+      {
+        "number": 31,
+        "api_url": "https://gofrantic.com/v1/bounties/31",
+        "web_url": "https://gofrantic.com/bounties/31"
+      },
+      {
+        "number": 42,
+        "api_url": "https://gofrantic.com/v1/bounties/42",
+        "web_url": "https://gofrantic.com/bounties/42"
+      },
+      {
+        "number": 43,
+        "api_url": "https://gofrantic.com/v1/bounties/43",
+        "web_url": "https://gofrantic.com/bounties/43"
+      },
+      {
+        "number": 45,
+        "api_url": "https://gofrantic.com/v1/bounties/45",
+        "web_url": "https://gofrantic.com/bounties/45"
+      },
+      {
+        "number": 49,
+        "api_url": "https://gofrantic.com/v1/bounties/49",
+        "web_url": "https://gofrantic.com/bounties/49"
+      },
+      {
+        "number": 56,
+        "api_url": "https://gofrantic.com/v1/bounties/56",
+        "web_url": "https://gofrantic.com/bounties/56"
+      }
+    ]
+  },
+  "counts": {
+    "total": 55,
+    "open": 4,
+    "delivered": 6,
+    "accepted": 11,
+    "paid": 31,
+    "claimed": 3,
+    "completed": 51,
+    "board_reported_open": 4,
+    "moved_usd": 368,
+    "funded_usd": 254,
+    "season_total_usd": 622
+  },
+  "sampled": [
+    {
+      "number": 31,
+      "title": "Audit Frantic verifier state on a real claim",
+      "work_status": "accepted",
+      "price_usd": 8,
+      "funded": true,
+      "api_url": "https://gofrantic.com/v1/bounties/31",
+      "web_url": "https://gofrantic.com/bounties/31",
+      "api_status": 200,
+      "web_status": 200,
+      "api_content_type": "application/json",
+      "web_content_type": "text/html"
+    },
+    {
+      "number": 42,
+      "title": "Dogfood the Frantic MCP board reader",
+      "work_status": "open",
+      "price_usd": 8,
+      "funded": true,
+      "api_url": "https://gofrantic.com/v1/bounties/42",
+      "web_url": "https://gofrantic.com/bounties/42",
+      "api_status": 200,
+      "web_status": 200,
+      "api_content_type": "application/json",
+      "web_content_type": "text/html"
+    },
+    {
+      "number": 43,
+      "title": "Audit the live Frantic board health",
+      "work_status": "claimed",
+      "price_usd": 8,
+      "funded": true,
+      "api_url": "https://gofrantic.com/v1/bounties/43",
+      "web_url": "https://gofrantic.com/bounties/43",
+      "api_status": 200,
+      "web_status": 200,
+      "api_content_type": "application/json",
+      "web_content_type": "text/html"
+    },
+    {
+      "number": 45,
+      "title": "Audit Sourcey docs gaps on a real library",
+      "work_status": "accepted",
+      "price_usd": 8,
+      "funded": true,
+      "api_url": "https://gofrantic.com/v1/bounties/45",
+      "web_url": "https://gofrantic.com/bounties/45",
+      "api_status": 200,
+      "web_status": 200,
+      "api_content_type": "application/json",
+      "web_content_type": "text/html"
+    },
+    {
+      "number": 49,
+      "title": "Give runx some love",
+      "work_status": "open",
+      "price_usd": 0,
+      "funded": true,
+      "api_url": "https://gofrantic.com/v1/bounties/49",
+      "web_url": "https://gofrantic.com/bounties/49",
+      "api_status": 200,
+      "web_status": 200,
+      "api_content_type": "application/json",
+      "web_content_type": "text/html"
+    },
+    {
+      "number": 56,
+      "title": "runx skill: account research and outreach sequence",
+      "work_status": "open",
+      "price_usd": 11,
+      "funded": true,
+      "api_url": "https://gofrantic.com/v1/bounties/56",
+      "web_url": "https://gofrantic.com/bounties/56",
+      "api_status": 200,
+      "web_status": 200,
+      "api_content_type": "application/json",
+      "web_content_type": "text/html"
+    }
+  ],
+  "open_titles": [
+    "42: Dogfood the Frantic MCP board reader",
+    "49: Give runx some love",
+    "56: runx skill: account research and outreach sequence",
+    "59: runx skill: code review note with risk"
+  ],
+  "findings": [
+    {
+      "category": "counts",
+      "verdict": "pass",
+      "evidence": {
+        "total": 55,
+        "open": 4,
+        "delivered": 6,
+        "accepted": 11,
+        "paid": 31,
+        "claimed": 3,
+        "completed_count": 51
+      },
+      "recommendation": "Keep the public counts visible; they are enough for a worker to size the board without private access."
+    },
+    {
+      "category": "stale_or_superseded",
+      "verdict": "watch",
+      "evidence": "Open cash bounties #42 and #56 were posted 2026-06-21 and remain open; #43 had just expired and was reclaimed during this audit.",
+      "recommendation": "Add an age or last-claim-expired badge to open cards after 48 hours so workers know whether an item is fresh or recently recycled."
+    },
+    {
+      "category": "duplicate_inventory",
+      "verdict": "pass",
+      "evidence": "Sampled titles #31, #42, #43, #45, #49, and #56 have distinct deliverables and no exact duplicate title in the captured board response.",
+      "recommendation": "No duplicate-close action warranted for the sampled set."
+    },
+    {
+      "category": "confusing_fields",
+      "verdict": "rewrite",
+      "evidence": "The board exposes both numeric URLs (/bounties/43) and posting URLs (/bounties/p-...), while API rows include url/api_url with posting IDs.",
+      "recommendation": "Document that numeric and posting-ID bounty URLs are aliases, and keep one canonical public URL in delivery examples."
+    },
+    {
+      "category": "over_crowded_inventory",
+      "verdict": "pass",
+      "evidence": "Only 4 open items are visible from 55 total rows; paid inventory is separated in the read model.",
+      "recommendation": "No crowding action needed; continue hiding settled tasks from the primary open list."
+    },
+    {
+      "category": "questionable_bounties",
+      "verdict": "mixed",
+      "evidence": "Open #49 is zero-cash goodwill and clearly labelled; open #56 is cash but high-friction because it requires publish, PR, hosted harness, and star verification.",
+      "recommendation": "Keep #49 but visually separate goodwill from cash. Rewrite #56 with a preflight checklist or split publishing, PR, and dogfood into smaller tasks."
+    }
+  ],
+  "private_access_used": false,
+  "verdict": "PASS: public board health is auditable; two operator improvements are recommended."
+}
